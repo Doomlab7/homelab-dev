@@ -5,6 +5,8 @@
 
 > homelab-compose is where my applications are deployed from
 
+- Missing: amcrest-sync (should be cron or compose stack?), dashy
+
 > ansible-playbooks is where my server setup and related playbooks are kept
 
 
@@ -22,17 +24,8 @@ Here's an example `.envrc` file you can use with direnv to automatically setup y
 
 ```bash
 #!/bin/bash
-# shortcut for creating new venv environments based on the current working directory
-export envname=./.venv/$(basename $PWD)
-venvenvnew() {
-	python3 -m venv $envname
-	source $envname/bin/activate
-	python3 -m pip install --upgrade pip
-	pip install pdbpp pyflyby
 
-}
-echo $(basename $PWD) | lolcat
-source $envname/bin/activate || venvenvnew
+source .venv/bin/activate || (uv venv && source .venv/bin/activate)
 
 # For Bitwarden Secrets Manager
 # bitwarden login -> secrets manager -> projects -> <whatever project> -> machine accounts
