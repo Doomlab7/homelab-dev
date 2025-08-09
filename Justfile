@@ -59,14 +59,14 @@ get-vault-key:
     bws secret get $HOMELAB_BOT_VAULT_KEY_ID  | jq -r '.value'
 
 encrypt:
-    just get-vault-key >> key
+    just get-vault-key > key
     ansible-vault encrypt inventory/all/group_vars/all.yml --vault-password-file key
     ansible-vault encrypt inventory/all/group_vars/production.yml --vault-password-file key
     ansible-vault encrypt inventory/all/group_vars/development.yml --vault-password-file key
     rm key
 
 decrypt:
-    just get-vault-key >> key
+    just get-vault-key > key
     ansible-vault decrypt inventory/all/group_vars/all.yml --vault-password-file key
     ansible-vault decrypt inventory/all/group_vars/production.yml --vault-password-file key
     ansible-vault decrypt inventory/all/group_vars/development.yml --vault-password-file key
