@@ -1,7 +1,0 @@
----
-- name: Deploy Application Containers
-  hosts: all
-  roles:
-    - role: amcrest-sync
-      tags:
-        - amcrest-sync

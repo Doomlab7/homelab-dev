@@ -1,5 +1,0 @@
-- hosts: prod_server
-  become: yes
-
-  roles:
-    - amcrest-sync
