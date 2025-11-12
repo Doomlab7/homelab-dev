@@ -3,11 +3,7 @@
 
 # Production
 
-> homelab-compose is where my applications are deployed from
-
-- Missing: amcrest-sync (should be cron or compose stack?), dashy
-
-> ansible-playbooks is where my server setup and related playbooks are kept
+> homelab-mono is where my applications are deployed from
 
 
 ## Assumptions
